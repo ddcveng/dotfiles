@@ -1,0 +1,46 @@
+" Maybe move this into a .lua file
+lua << EOF
+local pid = vim.fn.getpid()
+local omnisharp_bin = "/home/ddcveng/.local/language-servers/omnisharp-linux-x64/run"
+local nvim_lsp = require('lspconfig');
+
+local on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    local opts = { noremap = true, silent = true }
+
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', '<space>k', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', '<F2>', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<space>fm', '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<space>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    require'completion'.on_attach(client, bufnr)
+end
+
+-- format on save
+vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+
+require'lspconfig'.omnisharp.setup{
+    on_attach = on_attach,
+    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
+    flags = {
+        debounce_text_changes = 150,
+    }
+}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local servers = { 'html' }
+for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        }
+    }
+end
+EOF

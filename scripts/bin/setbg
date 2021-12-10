@@ -1,0 +1,15 @@
+#!/bin/sh
+
+bgloc=$HOME/.local/share/wall
+
+if [ -f "$1" ]; then
+    ln -sf $(realpath "$1") $bgloc
+fi
+
+if [ -d "$1" ]; then
+    #set random bg
+    ln -sf $(realpath $(find "$1" -maxdepth 1 -type f | shuf -n 1)) $bgloc
+fi
+
+xwallpaper --zoom $bgloc
+# wal -i $bgloc -n

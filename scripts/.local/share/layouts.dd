@@ -1,0 +1,5 @@
+LAYOUT|VARIANT|OPTION1|OPTION2|...
+-------------------------------------------
+us|-|grp:caps_switch
+sk|qwerty|grp:caps_switch
+us|dvorak|grp:caps_switch

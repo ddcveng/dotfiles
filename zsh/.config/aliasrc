@@ -1,0 +1,5 @@
+alias ls="ls --color=auto"
+alias lf="lfrun"
+alias vim="nvim"
+alias py="python3"
+alias vrc="nvim /home/ddcveng/.config/nvim/init.vim"
