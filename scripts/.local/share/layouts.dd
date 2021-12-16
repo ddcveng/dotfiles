@@ -1,5 +1,6 @@
-LAYOUT|VARIANT|OPTION1|OPTION2|...
--------------------------------------------
-us|-|grp:caps_switch
+#LAYOUT|VARIANT|OPTION1|OPTION2|...
+#*..FORMAT.. -> default layout, set on system start
+#-------------------------------------------
+*us|-|grp:caps_switch
 sk|qwerty|grp:caps_switch
 us|dvorak|grp:caps_switch
