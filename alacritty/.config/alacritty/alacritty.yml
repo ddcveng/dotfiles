@@ -20,18 +20,18 @@ window:
 font:
   normal:
     # Font name
-    family: monospace
+    family: Fira Code Nerd Font
     # Font face
     style: Regular
 
   # Bold font face
   bold:
-    family: monospace
+    family: Fira Code Nerd Font
     style: Bold
 
   # Italic font face
   italic:
-    family: monospace
+    family: Fira Code Nerd Font
     style: Italic
 
   # Bold italic font face
@@ -39,7 +39,7 @@ font:
   # italic & it just works. You may specifiy the bold italic version if it exists
   # for your font
   bold_italic:
-    family: monospace
+    family: Fira Code Nerd Font
     style: Italic
 
   # Font size

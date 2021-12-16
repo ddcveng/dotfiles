@@ -36,11 +36,11 @@ Plug 'ThePrimeagen/harpoon'
 
 call plug#end()
 
-colorscheme gruvbox
+" colorscheme gruvbox
 let mapleader = " "
 let $DOTFILES = "/home/ddcveng/dotfiles"
 
-lua require("ddcveng")
+" lua require("ddcveng")
 
 " Misc
 nnoremap Y y$
