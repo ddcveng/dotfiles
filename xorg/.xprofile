@@ -3,5 +3,5 @@ dwmblocks 2>&1 >/dev/null &
 picom -b
 dunst -c ~/.config/dunst/dunstrc &
 . ~/bin/setbg ~/pics/wallpapers
-kb_layout_set.sh --default
+# kb_layout_set.sh --default
 # redshift -l "50.0812702:14.4168453" -t "6500:4000" &
