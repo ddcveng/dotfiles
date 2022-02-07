@@ -1,9 +1,6 @@
-# while true; do
-#     # Log stderror to a file 
-#     dwm 2> ~/logs/.dwm.log
-#     # No error logging
-#     #dwm >/dev/null 2>&1
-# done
+#!/usr/bin/bash
+
+. /home/ddcveng/bin/dwm-autostart 2>/home/ddcveng/pelko
 
 # relaunch DWM if the binary changes, otherwise bail
 csum=""
