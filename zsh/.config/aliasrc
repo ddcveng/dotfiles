@@ -2,7 +2,6 @@ alias ls="ls --color=auto"
 alias la="ls -a"
 alias ll="ls -l"
 alias lf="lfrun"
-alias nvim="nvim.appimage"
 alias py="python3"
 alias vrc="nvim /home/ddcveng/.config/nvim/init.vim"
 
